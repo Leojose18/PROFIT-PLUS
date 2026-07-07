@@ -1,0 +1,89 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Cobros 2026 - House Depot / Krash Depot</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Segoe UI',system-ui,sans-serif;background:#0f172a;color:#e2e8f0;min-height:100vh}
+header{background:linear-gradient(135deg,#1e3a5f,#0f172a);padding:14px 24px 10px;border-bottom:1px solid #1e3a5f}header h1{font-size:1.15rem;font-weight:700;color:#93c5fd;letter-spacing:.05em;text-transform:uppercase}header p{font-size:.72rem;color:#64748b;margin-top:2px}
+.rw{padding:14px 24px;background:#0a0f1a;border-bottom:2px solid #1e3a5f;display:none}.rw.visible{display:block}
+.rt{font-size:1rem;font-weight:700;color:#e2e8f0;margin-bottom:10px}.rt span{color:#38bdf8;font-size:1.1rem}
+.rg{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin-bottom:10px}
+.rc{background:#1e293b;border-radius:8px;padding:10px 13px;border-left:3px solid}
+.rc.t{border-color:#38bdf8}.rc.d{border-color:#34d399}.rc.b{border-color:#fbbf24}.rc.cx{border-color:#94a3b8}.rc.de{border-color:#a78bfa}.rc.dh{border-color:#fb923c}.rc.db{border-color:#2dd4bf}
+.rl{font-size:.6rem;color:#64748b;text-transform:uppercase;letter-spacing:.07em;margin-bottom:2px}
+.rv{font-size:.95rem;font-weight:800;font-variant-numeric:tabular-nums}
+.rv.blue{color:#38bdf8}.rv.green{color:#34d399}.rv.orange{color:#fbbf24}.rv.gray{color:#94a3b8}.rv.purple{color:#a78bfa}.rv.amber{color:#fb923c}.rv.teal{color:#2dd4bf}
+.rs{font-size:.63rem;color:#475569;margin-top:2px}
+.cd{background:#1a1025;border:1px solid #2d1f3d;border-radius:8px;padding:10px 13px;margin-bottom:10px}
+.cd .ct{font-size:.7rem;color:#c084fc;font-weight:700;margin-bottom:6px;text-transform:uppercase}
+.cr{display:flex;justify-content:space-between;font-size:.82rem;padding:3px 0;border-bottom:1px solid #1e1530}.cr:last-child{border-bottom:none}.cr .cl{color:#a78bfa}.cr .cv{color:#e9d5ff;font-weight:700}.cr.tt .cl{color:#ec4899;font-weight:700}.cr.tt .cv{color:#f472b6;font-size:.9rem}
+.mb{background:#162032;border:1px solid #1e3a5f;border-radius:8px;padding:10px 14px;font-size:.8rem;color:#94a3b8;line-height:1.65;font-family:monospace;white-space:pre-wrap;cursor:pointer;position:relative}.mb:hover{border-color:#3b82f6}.mb.copied{border-color:#34d399}.ch{position:absolute;right:10px;top:8px;font-size:.63rem;color:#3b82f6}
+.sb{display:flex;gap:14px;padding:10px 24px;background:#111827;border-bottom:1px solid #1e293b;flex-wrap:wrap}.st{display:flex;flex-direction:column}.sl{font-size:.6rem;color:#64748b;text-transform:uppercase}.sv{font-size:.9rem;font-weight:700;color:#38bdf8}.sv.green{color:#4ade80}.sv.orange{color:#fb923c}.sd{width:1px;background:#1e293b}
+.controls{padding:8px 24px;background:#0f172a;border-bottom:1px solid #1e293b;display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.search-box{flex:1;min-width:170px;position:relative}.search-box input{width:100%;background:#1e293b;border:1px solid #334155;border-radius:8px;padding:7px 12px;color:#e2e8f0;font-size:.82rem;outline:none}.search-box input:focus{border-color:#3b82f6}
+select{background:#1e293b;border:1px solid #334155;border-radius:8px;padding:7px 10px;color:#e2e8f0;font-size:.82rem;outline:none;cursor:pointer}select#sf{border-color:#3b82f6;color:#93c5fd;font-weight:600}
+.bc{background:#334155;border:none;border-radius:8px;padding:7px 12px;color:#94a3b8;cursor:pointer;font-size:.78rem}
+.cf{display:flex;gap:5px;flex-wrap:wrap;padding:7px 24px;background:#0a0f1a;border-bottom:1px solid #1e293b}
+.cb{padding:3px 9px;border-radius:20px;border:1px solid;font-size:.68rem;font-weight:600;cursor:pointer;transition:opacity .15s}.cb.active{opacity:1}.cb:not(.active){opacity:.3}.cb:hover{opacity:.8}
+.tw{overflow:auto;max-height:calc(100vh - 330px)}table{width:100%;border-collapse:collapse;font-size:.78rem}
+thead th{background:#1e293b;padding:8px 10px;text-align:left;font-size:.67rem;font-weight:600;color:#94a3b8;text-transform:uppercase;position:sticky;top:0;z-index:10;border-bottom:1px solid #334155;white-space:nowrap;cursor:pointer;user-select:none}thead th:hover{color:#38bdf8}
+.si{opacity:.4;margin-left:3px}thead th.sorted .si{opacity:1;color:#38bdf8}
+tbody tr{border-bottom:1px solid #1e293b}tbody tr:hover{background:#1e293b}tbody td{padding:7px 10px;color:#cbd5e1;white-space:nowrap}
+.badge{display:inline-block;padding:2px 7px;border-radius:12px;font-size:.66rem;font-weight:700}
+.num{text-align:right;font-variant-numeric:tabular-nums}.nbs{color:#fbbf24}.nus{color:#34d399}.tv{color:#64748b;font-size:.72rem}.fTJ{color:#60a5fa}.fEF{color:#4ade80}
+.pg{display:flex;gap:5px;align-items:center;justify-content:center;padding:9px;background:#111827;border-top:1px solid #1e293b;flex-wrap:wrap}
+.pb{background:#1e293b;border:1px solid #334155;border-radius:6px;padding:4px 10px;color:#94a3b8;cursor:pointer;font-size:.77rem}.pb:hover{background:#2d3f5c;color:#e2e8f0}.pb.active{background:#2563eb;border-color:#2563eb;color:white}.pb:disabled{opacity:.3;cursor:not-allowed}.pi{color:#64748b;font-size:.74rem}
+.nr{text-align:center;padding:40px;color:#475569}.loading{text-align:center;padding:60px;color:#64748b;font-size:1rem}
+</style></head><body>
+<header><h1>Cobros 2026 - House Depot / Krash Depot</h1><p id="sub">Cargando datos...</p></header>
+<div id="app"><div class="loading">Cargando cobros_data.js...</div></div>
+<script src="cobros_data.js"></script>
+<script>
+(function(){
+if(typeof window.COBROS_DATA==='undefined'){document.getElementById('app').innerHTML='<div class="loading">No se encontro cobros_data.js. Verifique que el archivo este en la misma carpeta.</div>';return;}
+var D=window.COBROS_DATA;
+var R=D.raw.filter(function(x){return x!==null});
+var CD=D.cashea,CX=D.cxc,FD=D.fact,DD=D.dept,INI=D.inicial;
+var CC={'C1':'#2563eb','C2':'#7c3aed','C3':'#0891b2','C4':'#d97706','C5':'#16a34a','C6':'#dc2626','C7':'#9d174d','C12':'#64748b','CASH':'#0f766e','CCH':'#7e22ce','CCHV':'#854d0e','CP':'#475569','D01':'#b45309','DTR':'#1e40af'};
+var CL={'D01':'D01 $','DTR':'DTR $','CASH':'CASH'};
+var DI=['Domingo','Lunes','Martes','Miercoles','Jueves','Viernes','Sabado'];
+var PS=200,fi=[],cp=1,sc=0,sa=false;
+var cajasAll={},fechasAll={};
+R.forEach(function(r){cajasAll[r[1]]=1;fechasAll[r[0]]=1});
+var cajas=Object.keys(cajasAll).sort();
+var ac={};cajas.forEach(function(c){ac[c]=1});
+var fechas=Object.keys(fechasAll).sort().reverse();
+
+function fn(n){return n.toLocaleString('es-VE',{minimumFractionDigits:2,maximumFractionDigits:2})}
+function fb(n){return'Bs '+fn(n)}function fu(n){return fn(n)+'$'}function cl(c){return CL[c]||c}
+function sal(){var h=new Date().getHours();return h<12?'Buenos dias':h<18?'Buenas tardes':'Buenas noches'}
+function fl(iso){var a=iso.split('-');return DI[new Date(+a[0],+a[1]-1,+a[2]).getDay()]+' '+a[2]+'/'+a[1]+'/'+a[0]}
+
+// Build UI
+var btns='';cajas.forEach(function(c){var x=CC[c]||'#64748b';var l=CL[c]||c;btns+='<button class="cb active" data-caja="'+c+'" style="border-color:'+x+';color:'+x+';background:'+x+'22">'+l+'</button>'});
+var opts='<option value="">Todas las fechas</option>';fechas.forEach(function(f){opts+='<option value="'+f+'">'+f+'</option>'});
+document.getElementById('app').innerHTML=
+'<div class="rw" id="rw"><div class="rt" id="rt"></div>'+
+'<div class="rg"><div class="rc t"><div class="rl">Total Ventas</div><div class="rv blue" id="r-tot">-</div><div class="rs" id="r-tot-s"></div></div><div class="rc de"><div class="rl">Electrod</div><div class="rv purple" id="r-elec">-</div></div><div class="rc dh"><div class="rl">Hogar</div><div class="rv amber" id="r-hog">-</div></div><div class="rc db"><div class="rl">Bodegon</div><div class="rv teal" id="r-bod">-</div></div></div>'+
+'<div class="rg"><div class="rc d"><div class="rl">Cobro en $</div><div class="rv green" id="r-dol">-</div><div class="rs" id="r-dol-s"></div></div><div class="rc b"><div class="rl">Cobro en Bs</div><div class="rv orange" id="r-bs">-</div><div class="rs" id="r-bs-s"></div></div><div class="rc cx"><div class="rl">Cuentas x Cobrar</div><div class="rv gray" id="r-cxc">-</div></div></div>'+
+'<div class="cd" id="cd"><div class="ct">Desglose Cashea</div><div class="cr tt"><span class="cl" id="r-ca-l">Total Cashea</span><span class="cv" id="r-ca-t">-</span></div><div class="cr"><span class="cl">Inicial</span><span class="cv" id="r-ca-i">-</span></div><div class="cr"><span class="cl">Financiamiento</span><span class="cv" id="r-ca-f">-</span></div></div>'+
+'<div class="mb" id="msg"><span class="ch">copiar WhatsApp</span></div></div>'+
+'<div class="sb"><div class="st"><span class="sl">Registros</span><span class="sv" id="sn">-</span></div><div class="sd"></div><div class="st"><span class="sl">Total Bs</span><span class="sv orange" id="sbs">-</span></div><div class="sd"></div><div class="st"><span class="sl">Total $</span><span class="sv green" id="sus">-</span></div><div class="sd"></div><div class="st"><span class="sl">Periodo</span><span class="sv" id="sp">-</span></div></div>'+
+'<div class="controls"><select id="sf">'+opts+'</select><div class="search-box"><input type="text" id="sq" placeholder="Buscar cliente, cedula, cobro..."></div><select id="sm"><option value="">Todos los meses</option><option value="2026-01">Enero</option><option value="2026-02">Febrero</option><option value="2026-03">Marzo</option><option value="2026-04">Abril</option><option value="2026-05">Mayo</option><option value="2026-06">Junio</option><option value="2026-07">Julio</option><option value="2026-08">Agosto</option><option value="2026-09">Septiembre</option><option value="2026-10">Octubre</option><option value="2026-11">Noviembre</option><option value="2026-12">Diciembre</option></select><select id="sfo"><option value="">Todas formas</option><option value="TJ">Tarjeta</option><option value="EF">Efectivo</option></select><button class="bc" id="bclear">Limpiar</button></div>'+
+'<div class="cf" id="cf">'+btns+'</div>'+
+'<div class="tw"><table><thead><tr><th data-col="0">Fecha <span class="si">^</span></th><th data-col="1">Caja <span class="si">^</span></th><th data-col="2">Forma <span class="si">^</span></th><th>Cedula</th><th data-col="4">Cliente <span class="si">^</span></th><th>Cobro</th><th data-col="6" class="num">Bs <span class="si">^</span></th><th class="num">Tasa</th><th data-col="8" class="num">$ <span class="si">^</span></th></tr></thead><tbody id="tb"></tbody></table><div class="nr" id="nr" style="display:none">Sin resultados.</div></div>'+
+'<div class="pg" id="pg"></div>';
+
+function cR(iso){var dr=R.filter(function(r){return r[0]===iso});var dol=0,bs=0,nD=0,nB=0;dr.forEach(function(r){if(r[1]==='D01'||r[1]==='DTR'){dol+=r[8];nD++}else{bs+=r[8];nB++}});var ca=CD[iso]||[0,0];var cxc=CX[iso]||0;var dp=DD[iso]||[0,0,0,0];var ini=INI[iso]||0;var caT=ca[1];var fin=Math.max(0,caT-ini);var total=dol+bs+fin;return{total:total,dol:dol,bs:bs,caCnt:ca[0],caT:caT,ini:ini,fin:fin,cxc:cxc,elec:dp[0],hog:dp[1],bod:dp[2],nD:nD,nB:nB,n:dr.length}}
+function rR(iso){var rw=document.getElementById('rw');if(!iso){rw.classList.remove('visible');return}var s=cR(iso);rw.classList.add('visible');document.getElementById('rt').innerHTML=sal()+'. Ventas '+fl(iso)+' <span>*'+fn(s.total)+'*</span>';document.getElementById('r-tot').textContent=fu(s.total);document.getElementById('r-tot-s').textContent=s.n+' cobros';document.getElementById('r-elec').textContent=fu(s.elec);document.getElementById('r-hog').textContent=fu(s.hog);document.getElementById('r-bod').textContent=fu(s.bod);document.getElementById('r-dol').textContent=fu(s.dol);document.getElementById('r-dol-s').textContent=s.nD+' D01+DTR';document.getElementById('r-bs').textContent=fu(s.bs);document.getElementById('r-bs-s').textContent=s.nB+' cobros Bs';document.getElementById('r-cxc').textContent=fu(s.cxc);document.getElementById('r-ca-l').textContent='Total Cashea '+s.caCnt+':';document.getElementById('r-ca-t').textContent=fu(s.caT);document.getElementById('r-ca-i').textContent=fu(s.ini);document.getElementById('r-ca-f').textContent=fu(s.fin);document.getElementById('cd').style.display=s.caT>0?'block':'none';var msg=sal()+'. Ventas '+fl(iso)+' *'+fn(s.total)+'*\n\nElectrod: '+fu(s.elec)+'\nHogar: '+fu(s.hog)+'\nBodegon: '+fu(s.bod)+'\n\nCobro en $ '+fu(s.dol)+'\nCobro en Bs. '+fu(s.bs)+(s.caT>0?'\n\nTotal Cashea '+s.caCnt+': '+fu(s.caT)+'\n  Inicial: '+fu(s.ini)+'\n  Financiamiento: '+fu(s.fin):'')+(s.cxc>0?'\nCuentas por cobrar: '+fu(s.cxc):'');var el=document.getElementById('msg');el.dataset.msg=msg;while(el.childNodes.length>1)el.removeChild(el.lastChild);el.insertAdjacentText('beforeend','\n'+msg)}
+document.getElementById('app').addEventListener('click',function(e){if(e.target.closest('#msg')){var msg=document.getElementById('msg').dataset.msg;if(!msg)return;navigator.clipboard.writeText(msg).then(function(){var el=document.getElementById('msg');el.classList.add('copied');el.querySelector('.ch').textContent='copiado!';setTimeout(function(){el.classList.remove('copied');el.querySelector('.ch').textContent='copiar WhatsApp'},2000)})}var cb=e.target.closest('.cb');if(cb){var c=cb.dataset.caja;if(ac[c]){delete ac[c];cb.classList.remove('active')}else{ac[c]=1;cb.classList.add('active')}aF()}var th=e.target.closest('th[data-col]');if(th){var col=+th.dataset.col;if(sc===col)sa=!sa;else{sc=col;sa=col!==0}var ths=document.querySelectorAll('thead th');for(var i=0;i<ths.length;i++)ths[i].classList.remove('sorted');th.classList.add('sorted');aF()}var pb=e.target.closest('.pb');if(pb&&pb.dataset.page){gP(+pb.dataset.page)}if(e.target.id==='bclear'){cF()}});
+document.getElementById('sf').addEventListener('change',function(){var iso=this.value;if(iso)document.getElementById('sm').value='';rR(iso);aF()});
+document.getElementById('sm').addEventListener('change',aF);
+document.getElementById('sfo').addEventListener('change',aF);
+document.getElementById('sq').addEventListener('input',aF);
+function aF(){var q=document.getElementById('sq').value.toLowerCase().trim();var f=document.getElementById('sf').value;var m=document.getElementById('sm').value;var fo=document.getElementById('sfo').value;fi=R.filter(function(r){if(!ac[r[1]])return false;if(f&&r[0]!==f)return false;if(!f&&m&&r[0].indexOf(m)!==0)return false;if(fo&&r[2]!==fo)return false;if(q){var h=r[3].toLowerCase()+' '+r[4].toLowerCase()+' '+r[5];if(h.indexOf(q)<0)return false}return true});fi.sort(function(a,b){var va=a[sc],vb=b[sc];if(typeof va==='string'){va=va.toLowerCase();vb=vb.toLowerCase()}return sa?(va>vb?1:va<vb?-1:0):(va<vb?1:va>vb?-1:0)});cp=1;ren();uS()}
+function uS(){var sB=0,sU=0;fi.forEach(function(r){sB+=r[6];sU+=r[8]});var ds=fi.map(function(r){return r[0]}).sort();document.getElementById('sn').textContent=fi.length.toLocaleString('es-VE');document.getElementById('sbs').textContent=fb(sB);document.getElementById('sus').textContent=fn(sU)+'$';document.getElementById('sp').textContent=ds.length?ds[0]+' - '+ds[ds.length-1]:'-';document.getElementById('sub').textContent=fi.length.toLocaleString('es-VE')+' de '+R.length.toLocaleString('es-VE')+' registros - 2026'}
+function ren(){var start=(cp-1)*PS,page=fi.slice(start,start+PS);var tb=document.getElementById('tb'),nr=document.getElementById('nr');if(!fi.length){tb.innerHTML='';nr.style.display='block';return}nr.style.display='none';var h='';page.forEach(function(r){var co=CC[r[1]]||'#64748b',fc=r[2]==='TJ'?'fTJ':r[2]==='EF'?'fEF':'';h+='<tr><td>'+r[0]+'</td><td><span class="badge" style="background:'+co+'22;color:'+co+';border:1px solid '+co+'44">'+cl(r[1])+'</span></td><td class="'+fc+'">'+r[2]+'</td><td style="color:#94a3b8;font-size:.72rem">'+r[3]+'</td><td style="max-width:200px;overflow:hidden;text-overflow:ellipsis">'+r[4]+'</td><td style="color:#64748b;font-size:.72rem">'+r[5]+'</td><td class="num nbs">'+fb(r[6])+'</td><td class="num tv">'+fn(r[7])+'</td><td class="num nus">'+fn(r[8])+'$</td></tr>'});tb.innerHTML=h;rP()}
+function rP(){var t=Math.ceil(fi.length/PS),p=document.getElementById('pg');if(t<=1){p.innerHTML='';return}var h='<button class="pb" data-page="'+(cp-1)+'" '+(cp===1?'disabled':'')+'>&lt;</button>';var pp=[];for(var i=1;i<=t;i++){if(i===1||i===t||(i>=cp-2&&i<=cp+2))pp.push(i);else if(pp[pp.length-1]!=='...')pp.push('...')}pp.forEach(function(x){if(x==='...')h+='<span class="pi">...</span>';else h+='<button class="pb '+(x===cp?'active':'')+'" data-page="'+x+'">'+x+'</button>'});h+='<button class="pb" data-page="'+(cp+1)+'" '+(cp===t?'disabled':'')+'>&gt;</button>';h+='<span class="pi">'+fi.length.toLocaleString('es-VE')+' reg - Pag '+cp+'/'+t+'</span>';p.innerHTML=h}
+function gP(p){var t=Math.ceil(fi.length/PS);if(p<1||p>t)return;cp=p;ren();document.querySelector('.tw').scrollTop=0}
+function cF(){document.getElementById('sq').value='';document.getElementById('sf').value='';document.getElementById('sm').value='';document.getElementById('sfo').value='';cajas.forEach(function(c){ac[c]=1});var bs=document.querySelectorAll('.cb');for(var i=0;i<bs.length;i++)bs[i].classList.add('active');sc=0;sa=false;document.getElementById('rw').classList.remove('visible');aF()}
+aF();
+})();
+</script></body></html>
